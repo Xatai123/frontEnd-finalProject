@@ -1,12 +1,46 @@
-$dark: #222627;
-$gray: #393c3d;
-$light-gray: #4d5051;
-$light: #a6a6a6;
-$color: #db4437;
+$dark: rgb(34, 38, 39);
+$darker: rgb(25, 28, 29);
+$gray: rgb(56, 59, 60);
+$light-gray: rgb(77, 80, 81);
+$light: rgb(165, 165, 165);
+$color: rgb(219, 68, 55);
 
 * {
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
   scrollbar-width: thin;
+}
+
+.details {
+  a {
+    color: $light;
+    text-decoration: none;
+    outline: none !important;
+    transition: 0.3s;
+    font-size: 0.8rem;
+
+    &:hover {
+      color: $color !important;
+    }
+  }
+}
+
+.category {
+  height: auto;
+  width: auto;
+  text-transform: uppercase;
+  background: $color;
+  font-size: 0.8rem;
+  border-radius: 3px;
+  transition: 0.3s;
+  color: white;
+  text-decoration: none !important;
+
+  &:hover {
+    background: black;
+    color: white;
+  }
 }
 
 body {
@@ -25,7 +59,7 @@ header {
 
     div {
       color: $color;
-      padding-left: 60px;
+
       p {
         font-size: 0.8em;
         font-weight: 700;
@@ -71,7 +105,6 @@ header {
 
     &.fixed {
       position: fixed;
-      margin-top: -50px;
     }
 
     .navbar-collapse {
@@ -84,6 +117,7 @@ header {
           text-transform: uppercase;
           transition: 0.5s;
           border: none;
+          border-bottom: 3px $color solid;
           a {
             color: white;
             transition: 0.5s;
@@ -117,7 +151,8 @@ header {
 
 section {
   padding-top: 70px;
-  width: 1100px;
+  // width: 1100px;
+  width: 85%;
   margin: auto;
 
   &:nth-of-type(1) {
@@ -130,21 +165,27 @@ section {
     .ok1 {
       background-image: url(https://colorlib.com/preview/theme/vizew/img/bg-img/9.jpg);
       background-size: cover;
-      background-repeat: no-repeat;
       display: flex;
       justify-content: center;
-      align-items: flex-end;
       flex-wrap: wrap;
-      align-content: end;
+      align-content: flex-end;
 
       a {
+        color: white;
+        text-decoration: none;
+      }
+
+      & > a {
         height: 60px;
         width: 60px;
         border-radius: 100%;
         background: $color;
-        color: white;
         font-size: 1.4em;
-        text-decoration: none;
+        transition: 0.3s;
+
+        &:hover {
+          background: black;
+        }
       }
 
       .ok2 {
@@ -157,32 +198,21 @@ section {
         flex-wrap: wrap;
         background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
 
-        a:nth-of-type(1) {
-          height: auto;
-          width: auto;
-          text-transform: uppercase;
-          font-size: 0.8rem;
-          border-radius: 3px;
-        }
-        a:nth-of-type(2) {
+        & > a:nth-of-type(2) {
           background: transparent;
           width: 90%;
           font-weight: 700;
           font-size: 1.4rem;
+          transition: 0.3s;
+
+          &:hover {
+            color: black;
+          }
         }
 
         .ok3 {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
           color: white;
           font-size: 0.9rem;
-
-          .ok4 {
-            display: flex;
-            justify-content: space-between;
-          }
-
           p {
             background: black;
             color: white;
@@ -197,7 +227,6 @@ section {
     overflow-y: scroll;
     scrollbar-color: transparent transparent;
     scrollbar-width: thin;
-    // background: green;
 
     &:hover {
       scrollbar-color: $light transparent;
@@ -217,10 +246,12 @@ section {
         button {
           background: transparent;
           border: none;
+          outline: none;
 
           .row {
             img {
-              width: 100%;
+              max-width: 100%;
+              max-height: 100px;
             }
 
             .col-7 {
@@ -248,6 +279,182 @@ section {
         }
       }
     }
+  }
+
+  h3 {
+    width: 100%;
+    color: white;
+    margin-bottom: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  .line {
+    margin: auto;
+    height: 2px;
+    width: 170px;
+    background: $gray;
+
+    &::after {
+      content: "";
+      margin: auto;
+      display: block;
+      background: $color;
+      width: 50%;
+      height: 2px;
+      position: relative;
+    }
+  }
+
+  .card {
+    background: transparent;
+    border: none;
+
+    .card-img-top {
+      border-radius: 0;
+    }
+    .card-body {
+      & > a:nth-of-type(2) {
+        color: white;
+        display: inline-block;
+        font-size: 1.4rem;
+        font-weight: 500;
+        transition: 0.3s;
+
+        &:hover {
+          color: $color;
+        }
+      }
+
+      div {
+        a {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  .line-full {
+    height: 2px;
+    background: $gray;
+
+    &::after {
+      content: "";
+      display: block;
+      background: $color;
+      width: 10%;
+      height: 2px;
+      position: relative;
+    }
+  }
+
+  .carousel-button {
+    position: absolute;
+    top: 0;
+    right: 45px;
+    background: rgb(25, 29, 30);
+    border: none;
+    color: white;
+    font-size: 0.8rem;
+    width: 25px;
+    height: 25px;
+    outline: none !important;
+
+    &:nth-of-type(2) {
+      right: 15px;
+    }
+  }
+
+  .mini {
+    .col-7 {
+      & > a {
+        font-weight: 700;
+        transition: 0.3s;
+        &:hover {
+          color: $color !important;
+          cursor: pointer;
+        }
+      }
+
+      div a {
+        font-size: 0.7rem;
+        color: $light-gray;
+        transition: 0.3s;
+        &:hover {
+          color: white !important;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .bigInfo {
+    .title p {
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 700;
+      transition: 0.5s;
+      &:hover {
+        color: $color;
+        cursor: pointer;
+      }
+    }
+
+    .date {
+      p {
+        font-size: 0.9rem;
+        color: $light-gray;
+        transition: 0.5s;
+        &:hover {
+          color: $color;
+          cursor: pointer;
+        }
+      }
+
+      i {
+        font-size: 0.3rem;
+        color: $light;
+      }
+    }
+
+    p {
+      font-size: 0.88rem;
+      color: $light;
+    }
+  }
+}
+
+footer {
+  background: $darker;
+
+  .info {
+    height: 350px;
+
+    p {
+      color: $light;
+    }
+
+    input {
+      background: $gray;
+      border: none;
+      height: 40px;
+      width: calc(100% - 40px);
+      color:$light;
+    }
+
+    button {
+      background: $color;
+      border: none;
+      height: 40px;
+      width: 40px;
+      color: white;
+    }
+  }
+
+  .copyright {
+    height: 50px;
+    background: rgb(10, 10, 10);
+    bottom: 0;
   }
 }
 
